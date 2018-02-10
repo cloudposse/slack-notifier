@@ -5,34 +5,20 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 type SlackNotifier struct {
-	Channel    string
+	WebhookUrl string
 	DryRun     bool
-	IconEmoji  string
-	Username   string
-	WebhookURL string
+}
+
+type Payload struct {
+	Attachments []Attachment `json:"attachments"`
+	LinkNames   bool         `json:"link_names"`
+	Mrkdwn      bool         `json:"mrkdwn"`
 }
 
 // https://api.slack.com/docs/message-attachments
-type Payload struct {
-	Attachments []Attachment `json:"attachments"`
-	Channel     string       `json:"channel"`
-	IconEmoji   string       `json:"icon_emoji"`
-	LinkNames   bool         `json:"link_names"`
-	Mrkdwn      bool         `json:"mrkdwn"`
-	Text        string       `json:"text"`
-	Username    string       `json:"username"`
-}
-
-type Field struct {
-	Short bool   `json:"short"`
-	Title string `json:"title"`
-	Value string `json:"value"`
-}
-
 type Attachment struct {
 	AuthorIcon string   `json:"author_icon"`
 	AuthorLink string   `json:"author_link"`
@@ -52,48 +38,36 @@ type Attachment struct {
 	Ts         int64    `json:"ts"`
 }
 
-func NewSlackNotifier(channel string, iconEmoji string, username string, webhookURL string) SlackNotifier {
+type Field struct {
+	Short bool   `json:"short"`
+	Title string `json:"title"`
+	Value string `json:"value"`
+}
+
+func NewSlackNotifier(webhookURL string) SlackNotifier {
 	return SlackNotifier{
-		Channel:    channel,
-		IconEmoji:  iconEmoji,
-		Username:   username,
-		WebhookURL: webhookURL,
+		WebhookUrl: webhookURL,
 	}
 }
 
-func (sn SlackNotifier) NewPayload() Payload {
-	return Payload{
-		Channel:   sn.Channel,
-		Username:  sn.Username,
-		IconEmoji: sn.IconEmoji,
-		LinkNames: true,
-	}
-}
-
-func (payload *Payload) AppendField(field Field, attachmentIndex int) {
-	if attachmentIndex >= len(payload.Attachments) {
-		return
-	}
-	payload.Attachments[attachmentIndex].Fields = append(payload.Attachments[attachmentIndex].Fields, field)
-}
-
-func (sn SlackNotifier) PostPayload(payload Payload) error {
-	data, err := json.Marshal(payload)
+func (sn SlackNotifier) Notify(message Payload) error {
+	data, err := json.Marshal(message)
 	if err != nil {
 		return err
 	}
 
 	if sn.DryRun {
-		fmt.Fprintln(os.Stdout, "**dry run**\njson:\n", string(data))
+		fmt.Println(string(data))
 		return nil
 	}
 
 	body := bytes.NewBuffer(data)
-	request, err := http.NewRequest("POST", sn.WebhookURL, body)
-	request.Header.Add("Content-Type", "application/json; charset=utf-8")
+	request, err := http.NewRequest("POST", sn.WebhookUrl, body)
 	if err != nil {
 		return err
 	}
+
+	request.Header.Add("Content-Type", "application/json; charset=utf-8")
 
 	client := &http.Client{}
 	_, err = client.Do(request)
