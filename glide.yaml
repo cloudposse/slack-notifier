@@ -1,3 +1,1 @@
 package: github.com/cloudposse/slack-notifier
-import:
-  - package: github.com/pkg/errors
