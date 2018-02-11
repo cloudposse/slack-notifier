@@ -154,7 +154,7 @@ docker build --tag slack-notifier  --no-cache=true .
 
 ```sh
 docker run -i --rm \
-    -e SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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" \
+    -e SLACK_WEBHOOK_URL="https://hooks.slack.com/services/XXXXXXXX/XXXXXXXX/XXXXXXXXXXXXXXXXXXXXXX" \
     -e SLACK_USER_NAME="CodeFresh" \
     -e SLACK_ICON_EMOJI=":white_check_mark:" \
     -e SLACK_FALLBACK="Deployed to Staging environment" \
