@@ -2,7 +2,7 @@
 
 
 Command line utility to send messages with [attachments](https://api.slack.com/docs/message-attachments)
-to [Slack](https://slack.com) channels via [Incoming Webhooks](https://api.slack.com/incoming-webhooks) .
+to [Slack](https://slack.com) channels via [Incoming Webhooks](https://api.slack.com/incoming-webhooks).
 
 ###
 ![GitHub Commit Status](images/slack-notification-example.png)
