@@ -16,6 +16,8 @@ type Payload struct {
 	Attachments []Attachment `json:"attachments"`
 	LinkNames   bool         `json:"link_names"`
 	Mrkdwn      bool         `json:"mrkdwn"`
+	IconEmoji   string       `json:"icon_emoji"`
+	Username    string       `json:"username"`
 }
 
 // https://api.slack.com/docs/message-attachments
