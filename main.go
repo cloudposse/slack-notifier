@@ -44,17 +44,23 @@ var (
 
 func addField(fields []Field, fieldTitle string, fieldValue string, fieldShort string) []Field {
 	if fieldTitle != "" && fieldValue != "" {
-		var short bool
+		var short = false
 		var err error
-		if short, err = strconv.ParseBool(fieldShort); err == nil {
-			short = true
+
+		if fieldShort != "" {
+			if short, err = strconv.ParseBool(fieldShort); err != nil {
+				fmt.Println("slack-notifier: Error: ", err.Error())
+				short = false
+			}
 		}
+
 		fields = append(fields, Field{
 			Title: fieldTitle,
-			Value: *field1_value,
+			Value: fieldValue,
 			Short: short,
 		})
 	}
+
 	return fields
 }
 
