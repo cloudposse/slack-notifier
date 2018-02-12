@@ -4,7 +4,7 @@
 Command line utility to send messages with [attachments](https://api.slack.com/docs/message-attachments)
 to [Slack](https://slack.com) channels via [Incoming Webhooks](https://api.slack.com/incoming-webhooks).
 
-###
+
 ![GitHub Commit Status](images/slack-notification-example.png)
 
 
@@ -15,7 +15,7 @@ __NOTE__: The module accepts parameters as command-line arguments or as ENV vari
 Command-line arguments take precedence over ENV vars.
 
 
-__NOTE__: The module supports up to 5 fields in an [attachment](https://api.slack.com/docs/message-attachments)
+__NOTE__: The module supports up to 5 Fields in an [attachment](https://api.slack.com/docs/message-attachments)
 ###
 
 
@@ -84,19 +84,10 @@ export SLACK_FOOTER="Helm Deployment"
 export SLACK_FOOTER_ICON="https://cloudposse.com/wp-content/uploads/sites/29/2018/02/kubernetes.png"
 export SLACK_FIELD1_TITLE="Environment"
 export SLACK_FIELD1_VALUE="Staging"
-export SLACK_FIELD1_SHORT="false"
+export SLACK_FIELD1_SHORT="true"
 export SLACK_FIELD2_TITLE="Namespace"
 export SLACK_FIELD2_VALUE="feature-104"
-export SLACK_FIELD2_SHORT="false"
-export SLACK_FIELD3_TITLE="Commit URL"
-export SLACK_FIELD3_VALUE="https://github.com/cloudposse/slack-notifier/commit/6b77cb0a6f0ab2340af4e4cb0500dedc982d6f4c"
-export SLACK_FIELD3_SHORT="false"
-export SLACK_FIELD4_TITLE="Build URL"
-export SLACK_FIELD4_VALUE="https://g.codefresh.io/repositories/cloudposse/slack-notifier/builds/5a7deea7d49e1e123165e6cf"
-export SLACK_FIELD4_SHORT="false"
-export SLACK_FIELD5_TITLE="Deployment URL"
-export SLACK_FIELD5_VALUE="http://demo1.cloudposse.com"
-export SLACK_FIELD5_SHORT="false"
+export SLACK_FIELD2_SHORT="true"
 
 ./dist/bin/slack-notifier
 ```
@@ -123,19 +114,10 @@ export SLACK_FIELD5_SHORT="false"
     -footer_icon "https://cloudposse.com/wp-content/uploads/sites/29/2018/02/kubernetes.png" \
     -field1_title "Environment" \
     -field1_value "Staging" \
-    -field1_short false \
+    -field1_short true \
     -field2_title "Namespace" \
     -field2_value "feature-104" \
-    -field2_short false \
-    -field3_title "Commit URL" \
-    -field3_value "https://github.com/cloudposse/slack-notifier/commit/6b77cb0a6f0ab2340af4e4cb0500dedc982d6f4c" \
-    -field3_short false \
-    -field4_title "Build URL" \
-    -field4_value "https://g.codefresh.io/repositories/cloudposse/slack-notifier/builds/5a7deea7d49e1e123165e6cf" \
-    -field4_short false \
-    -field5_title "Deployment URL" \
-    -field5_value "http://demo1.cloudposse.com" \
-    -field5_short false
+    -field2_short true
 ```
 
 
@@ -171,19 +153,10 @@ docker run -i --rm \
     -e SLACK_FOOTER_ICON="https://cloudposse.com/wp-content/uploads/sites/29/2018/02/kubernetes.png" \
     -e SLACK_FIELD1_TITLE="Environment" \
     -e SLACK_FIELD1_VALUE="Staging" \
-    -e SLACK_FIELD1_SHORT="false" \
+    -e SLACK_FIELD1_SHORT="true" \
     -e SLACK_FIELD2_TITLE="Namespace" \
     -e SLACK_FIELD2_VALUE="feature-104" \
-    -e SLACK_FIELD2_SHORT="false" \
-    -e SLACK_FIELD3_TITLE="Commit URL" \
-    -e SLACK_FIELD3_VALUE="https://github.com/cloudposse/slack-notifier/commit/6b77cb0a6f0ab2340af4e4cb0500dedc982d6f4c" \
-    -e SLACK_FIELD3_SHORT="false" \
-    -e SLACK_FIELD4_TITLE="Build URL" \
-    -e SLACK_FIELD4_VALUE="https://g.codefresh.io/repositories/cloudposse/slack-notifier/builds/5a7deea7d49e1e123165e6cf" \
-    -e SLACK_FIELD4_SHORT="false" \
-    -e SLACK_FIELD5_TITLE="Deployment URL" \
-    -e SLACK_FIELD5_VALUE="http://demo1.cloudposse.com" \
-    -e SLACK_FIELD5_SHORT="false" \
+    -e SLACK_FIELD2_SHORT="true" \
     slack-notifier
 ```
 
