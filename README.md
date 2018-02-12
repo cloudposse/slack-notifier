@@ -15,7 +15,7 @@ __NOTE__: The module accepts parameters as command-line arguments or as ENV vari
 Command-line arguments take precedence over ENV vars.
 
 
-__NOTE__: The module supports up to 5 fields in a message [attachment](https://api.slack.com/docs/message-attachments)
+__NOTE__: The module supports up to 5 fields in an [attachment](https://api.slack.com/docs/message-attachments)
 ###
 
 
