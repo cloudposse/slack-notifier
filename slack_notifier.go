@@ -23,7 +23,7 @@ type Payload struct {
 	Username    string       `json:"username"`
 }
 
-// Attachment for a Slack Message
+// Attachment for a Slack message
 // https://api.slack.com/docs/message-attachments
 type Attachment struct {
 	AuthorIcon string   `json:"author_icon"`
@@ -51,14 +51,14 @@ type Field struct {
 	Value string `json:"value"`
 }
 
-// Create a new SlackNotifier
+// NewSlackNotifier creates a new SlackNotifier
 func NewSlackNotifier(webhookURL string) SlackNotifier {
 	return SlackNotifier{
 		WebhookURL: webhookURL,
 	}
 }
 
-// Send a message to Slack channel
+// Notify sends a message to the Slack channel
 func (sn SlackNotifier) Notify(message Payload) error {
 	data, err := json.Marshal(message)
 	if err != nil {
