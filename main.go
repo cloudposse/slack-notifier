@@ -9,37 +9,37 @@ import (
 )
 
 var (
-	webhook_url  = flag.String("webhook_url", os.Getenv("SLACK_WEBHOOK_URL"), "Slack Webhook URL")
-	user_name    = flag.String("user_name", os.Getenv("SLACK_USER_NAME"), "Slack user name (the username from which the messages will be sent)")
-	icon_emoji   = flag.String("icon_emoji", os.Getenv("SLACK_ICON_EMOJI"), "Slack icon emoji for the user's avatar. https://www.webpagefx.com/tools/emoji-cheat-sheet")
-	fallback     = flag.String("fallback", os.Getenv("SLACK_FALLBACK"), "A plain-text summary of the attachment. This text will be used in clients that don't show formatted text")
-	color        = flag.String("color", os.Getenv("SLACK_COLOR"), "An optional value that can either be one of good, warning, danger, or any hex color code (e.g. #439FE0)")
-	pretext      = flag.String("pretext", os.Getenv("SLACK_PRETEXT"), "Optional text that appears above the message attachment block")
-	author_name  = flag.String("author_name", os.Getenv("SLACK_AUTHOR_NAME"), "Small text to display the attachment author's name")
-	author_link  = flag.String("author_link", os.Getenv("SLACK_AUTHOR_LINK"), "URL that will hyperlink the author's name. Will only work if author_name is present")
-	author_icon  = flag.String("author_icon", os.Getenv("SLACK_AUTHOR_ICON"), "URL of a small 16x16px image to the left of the author's name. Will only work if `author_name` is present")
-	title        = flag.String("title", os.Getenv("SLACK_TITLE"), "The title is displayed as larger, bold text near the top of a message attachment")
-	title_link   = flag.String("title_link", os.Getenv("SLACK_TITLE_LINK"), "URL for the title text to be hyperlinked")
-	text         = flag.String("text", os.Getenv("SLACK_TEXT"), "Main text in a message attachment")
-	thumb_url    = flag.String("thumb_url", os.Getenv("SLACK_THUMB_URL"), "URL to an image file that will be displayed as a thumbnail on the right side of a message attachment")
-	footer       = flag.String("footer", os.Getenv("SLACK_FOOTER"), "Brief text to help contextualize and identify an attachment")
-	footer_icon  = flag.String("footer_icon", os.Getenv("SLACK_FOOTER_ICON"), "URL of a small icon beside the footer text")
-	image_url    = flag.String("image_url", os.Getenv("SLACK_IMAGE_URL"), "URL to an image file that will be displayed inside a message attachment")
-	field1_title = flag.String("field1_title", os.Getenv("SLACK_FIELD1_TITLE"), "Field1 title")
-	field1_value = flag.String("field1_value", os.Getenv("SLACK_FIELD1_VALUE"), "Field1 value")
-	field1_short = flag.String("field1_short", os.Getenv("SLACK_FIELD1_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
-	field2_title = flag.String("field2_title", os.Getenv("SLACK_FIELD2_TITLE"), "Field2 title")
-	field2_value = flag.String("field2_value", os.Getenv("SLACK_FIELD2_VALUE"), "Field2 value")
-	field2_short = flag.String("field2_short", os.Getenv("SLACK_FIELD2_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
-	field3_title = flag.String("field3_title", os.Getenv("SLACK_FIELD3_TITLE"), "Field3 title")
-	field3_value = flag.String("field3_value", os.Getenv("SLACK_FIELD3_VALUE"), "Field3 value")
-	field3_short = flag.String("field3_short", os.Getenv("SLACK_FIELD3_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
-	field4_title = flag.String("field4_title", os.Getenv("SLACK_FIELD4_TITLE"), "Field4 title")
-	field4_value = flag.String("field4_value", os.Getenv("SLACK_FIELD4_VALUE"), "Field4 value")
-	field4_short = flag.String("field4_short", os.Getenv("SLACK_FIELD4_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
-	field5_title = flag.String("field5_title", os.Getenv("SLACK_FIELD5_TITLE"), "Field5 title")
-	field5_value = flag.String("field5_value", os.Getenv("SLACK_FIELD5_VALUE"), "Field5 value")
-	field5_short = flag.String("field5_short", os.Getenv("SLACK_FIELD5_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	webhookURL  = flag.String("webhook_url", os.Getenv("SLACK_WEBHOOK_URL"), "Slack Webhook URL")
+	userName    = flag.String("user_name", os.Getenv("SLACK_USER_NAME"), "Slack user name (the username from which the messages will be sent)")
+	iconEmoji   = flag.String("icon_emoji", os.Getenv("SLACK_ICON_EMOJI"), "Slack icon emoji for the user's avatar. https://www.webpagefx.com/tools/emoji-cheat-sheet")
+	fallback    = flag.String("fallback", os.Getenv("SLACK_FALLBACK"), "A plain-text summary of the attachment. This text will be used in clients that don't show formatted text")
+	color       = flag.String("color", os.Getenv("SLACK_COLOR"), "An optional value that can either be one of good, warning, danger, or any hex color code (e.g. #439FE0)")
+	pretext     = flag.String("pretext", os.Getenv("SLACK_PRETEXT"), "Optional text that appears above the message attachment block")
+	authorName  = flag.String("author_name", os.Getenv("SLACK_AUTHOR_NAME"), "Small text to display the attachment author's name")
+	authorLink  = flag.String("author_link", os.Getenv("SLACK_AUTHOR_LINK"), "URL that will hyperlink the author's name. Will only work if author_name is present")
+	authorIcon  = flag.String("author_icon", os.Getenv("SLACK_AUTHOR_ICON"), "URL of a small 16x16px image to the left of the author's name. Will only work if `author_name` is present")
+	title       = flag.String("title", os.Getenv("SLACK_TITLE"), "The title is displayed as larger, bold text near the top of a message attachment")
+	titleLink   = flag.String("title_link", os.Getenv("SLACK_TITLE_LINK"), "URL for the title text to be hyperlinked")
+	text        = flag.String("text", os.Getenv("SLACK_TEXT"), "Main text in a message attachment")
+	thumbURL    = flag.String("thumb_url", os.Getenv("SLACK_THUMB_URL"), "URL to an image file that will be displayed as a thumbnail on the right side of a message attachment")
+	footer      = flag.String("footer", os.Getenv("SLACK_FOOTER"), "Brief text to help contextualize and identify an attachment")
+	footerIcon  = flag.String("footer_icon", os.Getenv("SLACK_FOOTER_ICON"), "URL of a small icon beside the footer text")
+	imageURL    = flag.String("image_url", os.Getenv("SLACK_IMAGE_URL"), "URL to an image file that will be displayed inside a message attachment")
+	field1Title = flag.String("field1_title", os.Getenv("SLACK_FIELD1_TITLE"), "Field1 title")
+	field1Value = flag.String("field1_value", os.Getenv("SLACK_FIELD1_VALUE"), "Field1 value")
+	field1Short = flag.String("field1_short", os.Getenv("SLACK_FIELD1_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field2Title = flag.String("field2_title", os.Getenv("SLACK_FIELD2_TITLE"), "Field2 title")
+	field2Value = flag.String("field2_value", os.Getenv("SLACK_FIELD2_VALUE"), "Field2 value")
+	field2Short = flag.String("field2_short", os.Getenv("SLACK_FIELD2_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field3Title = flag.String("field3_title", os.Getenv("SLACK_FIELD3_TITLE"), "Field3 title")
+	field3Value = flag.String("field3_value", os.Getenv("SLACK_FIELD3_VALUE"), "Field3 value")
+	field3Short = flag.String("field3_short", os.Getenv("SLACK_FIELD3_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field4Title = flag.String("field4_title", os.Getenv("SLACK_FIELD4_TITLE"), "Field4 title")
+	field4Value = flag.String("field4_value", os.Getenv("SLACK_FIELD4_VALUE"), "Field4 value")
+	field4Short = flag.String("field4_short", os.Getenv("SLACK_FIELD4_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field5Title = flag.String("field5_title", os.Getenv("SLACK_FIELD5_TITLE"), "Field5 title")
+	field5Value = flag.String("field5_value", os.Getenv("SLACK_FIELD5_VALUE"), "Field5 value")
+	field5Short = flag.String("field5_short", os.Getenv("SLACK_FIELD5_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
 )
 
 func addField(fields []Field, fieldTitle string, fieldValue string, fieldShort string) []Field {
@@ -67,41 +67,41 @@ func addField(fields []Field, fieldTitle string, fieldValue string, fieldShort s
 func main() {
 	flag.Parse()
 
-	if *webhook_url == "" {
+	if *webhookURL == "" {
 		flag.PrintDefaults()
 		log.Fatal("-webhook_url or SLACK_WEBHOOK_URL required")
 	}
-	if *user_name == "" {
+	if *userName == "" {
 		flag.PrintDefaults()
 		log.Fatal("-user_name or SLACK_USER_NAME required")
 	}
-	if *icon_emoji == "" {
+	if *iconEmoji == "" {
 		flag.PrintDefaults()
 		log.Fatal("-icon_emoji or SLACK_ICON_EMOJI required")
 	}
 
 	attachment := Attachment{
 		MrkdwnIn:   []string{"text", "pretext"},
-		AuthorIcon: *author_icon,
-		AuthorLink: *author_link,
-		AuthorName: *author_name,
+		AuthorIcon: *authorIcon,
+		AuthorLink: *authorLink,
+		AuthorName: *authorName,
 		Color:      *color,
 		Fallback:   *fallback,
-		FooterIcon: *footer_icon,
+		FooterIcon: *footerIcon,
 		Footer:     *footer,
-		ImageURL:   *image_url,
+		ImageURL:   *imageURL,
 		Pretext:    *pretext,
 		Text:       *text,
-		ThumbURL:   *thumb_url,
-		TitleLink:  *title_link,
+		ThumbURL:   *thumbURL,
+		TitleLink:  *titleLink,
 		Title:      *title,
 	}
 
-	fields := addField([]Field{}, *field1_title, *field1_value, *field1_short)
-	fields = addField(fields, *field2_title, *field2_value, *field2_short)
-	fields = addField(fields, *field3_title, *field3_value, *field3_short)
-	fields = addField(fields, *field4_title, *field4_value, *field4_short)
-	fields = addField(fields, *field5_title, *field5_value, *field5_short)
+	fields := addField([]Field{}, *field1Title, *field1Value, *field1Short)
+	fields = addField(fields, *field2Title, *field2Value, *field2Short)
+	fields = addField(fields, *field3Title, *field3Value, *field3Short)
+	fields = addField(fields, *field4Title, *field4Value, *field4Short)
+	fields = addField(fields, *field5Title, *field5Value, *field5Short)
 
 	if len(fields) > 0 {
 		attachment.Fields = fields
@@ -111,11 +111,11 @@ func main() {
 		Attachments: []Attachment{attachment},
 		LinkNames:   true,
 		Mrkdwn:      true,
-		Username:    *user_name,
-		IconEmoji:   *icon_emoji,
+		Username:    *userName,
+		IconEmoji:   *iconEmoji,
 	}
 
-	notifier := NewSlackNotifier(*webhook_url)
+	notifier := NewSlackNotifier(*webhookURL)
 	err := notifier.Notify(payload)
 	if err != nil {
 		fmt.Println("slack-notifier: Failed to sent message to Webhook URL. Error: ", err.Error())
