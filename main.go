@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	webhookUrl  = flag.String("webhook_url", os.Getenv("SLACK_WEBHOOK_URL"), "Slack Webhook URL")
+	webhookURL  = flag.String("webhook_url", os.Getenv("SLACK_WEBHOOK_URL"), "Slack Webhook URL")
 	userName    = flag.String("user_name", os.Getenv("SLACK_USER_NAME"), "Slack user name (the username from which the messages will be sent)")
 	iconEmoji   = flag.String("icon_emoji", os.Getenv("SLACK_ICON_EMOJI"), "Slack icon emoji for the user's avatar. https://www.webpagefx.com/tools/emoji-cheat-sheet")
 	fallback    = flag.String("fallback", os.Getenv("SLACK_FALLBACK"), "A plain-text summary of the attachment. This text will be used in clients that don't show formatted text")
@@ -21,10 +21,10 @@ var (
 	title       = flag.String("title", os.Getenv("SLACK_TITLE"), "The title is displayed as larger, bold text near the top of a message attachment")
 	titleLink   = flag.String("title_link", os.Getenv("SLACK_TITLE_LINK"), "URL for the title text to be hyperlinked")
 	text        = flag.String("text", os.Getenv("SLACK_TEXT"), "Main text in a message attachment")
-	thumbUrl    = flag.String("thumb_url", os.Getenv("SLACK_THUMB_URL"), "URL to an image file that will be displayed as a thumbnail on the right side of a message attachment")
+	thumbURL    = flag.String("thumb_url", os.Getenv("SLACK_THUMB_URL"), "URL to an image file that will be displayed as a thumbnail on the right side of a message attachment")
 	footer      = flag.String("footer", os.Getenv("SLACK_FOOTER"), "Brief text to help contextualize and identify an attachment")
 	footerIcon  = flag.String("footer_icon", os.Getenv("SLACK_FOOTER_ICON"), "URL of a small icon beside the footer text")
-	imageUrl    = flag.String("image_url", os.Getenv("SLACK_IMAGE_URL"), "URL to an image file that will be displayed inside a message attachment")
+	imageURL    = flag.String("image_url", os.Getenv("SLACK_IMAGE_URL"), "URL to an image file that will be displayed inside a message attachment")
 	field1Title = flag.String("field1_title", os.Getenv("SLACK_FIELD1_TITLE"), "Field1 title")
 	field1Value = flag.String("field1_value", os.Getenv("SLACK_FIELD1_VALUE"), "Field1 value")
 	field1Short = flag.String("field1_short", os.Getenv("SLACK_FIELD1_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
@@ -67,7 +67,7 @@ func addField(fields []Field, fieldTitle string, fieldValue string, fieldShort s
 func main() {
 	flag.Parse()
 
-	if *webhookUrl == "" {
+	if *webhookURL == "" {
 		flag.PrintDefaults()
 		log.Fatal("-webhook_url or SLACK_WEBHOOK_URL required")
 	}
@@ -89,10 +89,10 @@ func main() {
 		Fallback:   *fallback,
 		FooterIcon: *footerIcon,
 		Footer:     *footer,
-		ImageURL:   *imageUrl,
+		ImageURL:   *imageURL,
 		Pretext:    *pretext,
 		Text:       *text,
-		ThumbURL:   *thumbUrl,
+		ThumbURL:   *thumbURL,
 		TitleLink:  *titleLink,
 		Title:      *title,
 	}
@@ -115,7 +115,7 @@ func main() {
 		IconEmoji:   *iconEmoji,
 	}
 
-	notifier := NewSlackNotifier(*webhookUrl)
+	notifier := NewSlackNotifier(*webhookURL)
 	err := notifier.Notify(payload)
 	if err != nil {
 		fmt.Println("slack-notifier: Failed to sent message to Webhook URL. Error: ", err.Error())
