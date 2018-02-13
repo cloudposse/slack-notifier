@@ -7,11 +7,14 @@ import (
 	"net/http"
 )
 
+// SlackNotifier type
+// Set DryRun to 'true' to print the message to the console for testing (not send it to the Slack channel)
 type SlackNotifier struct {
-	WebhookUrl string
+	WebhookURL string
 	DryRun     bool
 }
 
+// Payload is a Slack message with attachments
 type Payload struct {
 	Attachments []Attachment `json:"attachments"`
 	LinkNames   bool         `json:"link_names"`
@@ -20,6 +23,7 @@ type Payload struct {
 	Username    string       `json:"username"`
 }
 
+// Attachment for a Slack Message
 // https://api.slack.com/docs/message-attachments
 type Attachment struct {
 	AuthorIcon string   `json:"author_icon"`
@@ -40,18 +44,21 @@ type Attachment struct {
 	Ts         int64    `json:"ts"`
 }
 
+// Field of an attachment
 type Field struct {
 	Short bool   `json:"short"`
 	Title string `json:"title"`
 	Value string `json:"value"`
 }
 
+// Create a new SlackNotifier
 func NewSlackNotifier(webhookURL string) SlackNotifier {
 	return SlackNotifier{
-		WebhookUrl: webhookURL,
+		WebhookURL: webhookURL,
 	}
 }
 
+// Send a message to Slack channel
 func (sn SlackNotifier) Notify(message Payload) error {
 	data, err := json.Marshal(message)
 	if err != nil {
@@ -64,7 +71,7 @@ func (sn SlackNotifier) Notify(message Payload) error {
 	}
 
 	body := bytes.NewBuffer(data)
-	request, err := http.NewRequest("POST", sn.WebhookUrl, body)
+	request, err := http.NewRequest("POST", sn.WebhookURL, body)
 	if err != nil {
 		return err
 	}
