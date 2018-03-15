@@ -15,7 +15,7 @@ __NOTE__: The module accepts parameters as command-line arguments or as ENV vari
 Command-line arguments take precedence over ENV vars.
 
 
-__NOTE__: The module supports up to 5 Fields in an [attachment](https://api.slack.com/docs/message-attachments)
+__NOTE__: The module supports up to 8 Fields in an [attachment](https://api.slack.com/docs/message-attachments)
 ###
 
 
@@ -52,6 +52,15 @@ __NOTE__: The module supports up to 5 Fields in an [attachment](https://api.slac
 | field5_title          | SLACK_FIELD5_TITLE  | Field5 title                                                                                                                         |
 | field5_value          | SLACK_FIELD5_VALUE  | Field5 value                                                                                                                         |
 | field5_short          | SLACK_FIELD5_SHORT  | An optional boolean indicating whether the `value` is short enough to be displayed side-by-side with other values (default `false`)  |
+| field6_title          | SLACK_FIELD6_TITLE  | Field6 title                                                                                                                         |
+| field6_value          | SLACK_FIELD6_VALUE  | Field6 value                                                                                                                         |
+| field6_short          | SLACK_FIELD6_SHORT  | An optional boolean indicating whether the `value` is short enough to be displayed side-by-side with other values (default `false`)  |
+| field7_title          | SLACK_FIELD7_TITLE  | Field7 title                                                                                                                         |
+| field7_value          | SLACK_FIELD7_VALUE  | Field7 value                                                                                                                         |
+| field7_short          | SLACK_FIELD7_SHORT  | An optional boolean indicating whether the `value` is short enough to be displayed side-by-side with other values (default `false`)  |
+| field8_title          | SLACK_FIELD8_TITLE  | Field8 title                                                                                                                         |
+| field8_value          | SLACK_FIELD8_VALUE  | Field8 value                                                                                                                         |
+| field8_short          | SLACK_FIELD8_SHORT  | An optional boolean indicating whether the `value` is short enough to be displayed side-by-side with other values (default `false`)  |
 
 
 
