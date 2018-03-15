@@ -40,6 +40,15 @@ var (
 	field5Title = flag.String("field5_title", os.Getenv("SLACK_FIELD5_TITLE"), "Field5 title")
 	field5Value = flag.String("field5_value", os.Getenv("SLACK_FIELD5_VALUE"), "Field5 value")
 	field5Short = flag.String("field5_short", os.Getenv("SLACK_FIELD5_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field6Title = flag.String("field6_title", os.Getenv("SLACK_FIELD6_TITLE"), "Field6 title")
+	field6Value = flag.String("field6_value", os.Getenv("SLACK_FIELD6_VALUE"), "Field6 value")
+	field6Short = flag.String("field6_short", os.Getenv("SLACK_FIELD6_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field7Title = flag.String("field7_title", os.Getenv("SLACK_FIELD7_TITLE"), "Field7 title")
+	field7Value = flag.String("field7_value", os.Getenv("SLACK_FIELD7_VALUE"), "Field7 value")
+	field7Short = flag.String("field7_short", os.Getenv("SLACK_FIELD7_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field8Title = flag.String("field8_title", os.Getenv("SLACK_FIELD8_TITLE"), "Field8 title")
+	field8Value = flag.String("field8_value", os.Getenv("SLACK_FIELD8_VALUE"), "Field8 value")
+	field8Short = flag.String("field8_short", os.Getenv("SLACK_FIELD8_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
 )
 
 func addField(fields []Field, fieldTitle string, fieldValue string, fieldShort string) []Field {
@@ -102,6 +111,9 @@ func main() {
 	fields = addField(fields, *field3Title, *field3Value, *field3Short)
 	fields = addField(fields, *field4Title, *field4Value, *field4Short)
 	fields = addField(fields, *field5Title, *field5Value, *field5Short)
+	fields = addField(fields, *field6Title, *field6Value, *field6Short)
+	fields = addField(fields, *field7Title, *field7Value, *field7Short)
+	fields = addField(fields, *field8Title, *field8Value, *field8Short)
 
 	if len(fields) > 0 {
 		attachment.Fields = fields
