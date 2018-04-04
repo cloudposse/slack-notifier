@@ -61,8 +61,12 @@ __NOTE__: The module supports up to 8 Fields in an [attachment](https://api.slac
 | field8_title          | SLACK_FIELD8_TITLE  | Field8 title                                                                                                                         |
 | field8_value          | SLACK_FIELD8_VALUE  | Field8 value                                                                                                                         |
 | field8_short          | SLACK_FIELD8_SHORT  | An optional boolean indicating whether the `value` is short enough to be displayed side-by-side with other values (default `false`)  |
-
-
+| field9_title          | SLACK_FIELD9_TITLE  | Field9 title                                                                                                                         |
+| field9_value          | SLACK_FIELD9_VALUE  | Field9 value                                                                                                                         |
+| field9_short          | SLACK_FIELD9_SHORT  | An optional boolean indicating whether the `value` is short enough to be displayed side-by-side with other values (default `false`)  |
+| field10_title          | SLACK_FIELD10_TITLE  | Field10 title                                                                                                                         |
+| field10_value          | SLACK_FIELD10_VALUE  | Field10 value                                                                                                                         |
+| field10_short          | SLACK_FIELD10_SHORT  | An optional boolean indicating whether the `value` is short enough to be displayed side-by-side with other values (default `false`)  |
 
 ### build the Go program locally
 
