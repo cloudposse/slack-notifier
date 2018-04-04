@@ -49,6 +49,12 @@ var (
 	field8Title = flag.String("field8_title", os.Getenv("SLACK_FIELD8_TITLE"), "Field8 title")
 	field8Value = flag.String("field8_value", os.Getenv("SLACK_FIELD8_VALUE"), "Field8 value")
 	field8Short = flag.String("field8_short", os.Getenv("SLACK_FIELD8_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field9Title = flag.String("field9_title", os.Getenv("SLACK_FIELD9_TITLE"), "Field9 title")
+	field9Value = flag.String("field9_value", os.Getenv("SLACK_FIELD9_VALUE"), "Field9 value")
+	field9Short = flag.String("field9_short", os.Getenv("SLACK_FIELD9_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")
+	field10Title = flag.String("field10_title", os.Getenv("SLACK_FIELD10_TITLE"), "Field10 title")
+	field10Value = flag.String("field10_value", os.Getenv("SLACK_FIELD10_VALUE"), "Field10 value")
+	field10Short = flag.String("field10_short", os.Getenv("SLACK_FIELD10_SHORT"), "An optional boolean indicating whether the 'value' is short enough to be displayed side-by-side with other values (default 'false')")	
 )
 
 func addField(fields []Field, fieldTitle string, fieldValue string, fieldShort string) []Field {
@@ -114,6 +120,8 @@ func main() {
 	fields = addField(fields, *field6Title, *field6Value, *field6Short)
 	fields = addField(fields, *field7Title, *field7Value, *field7Short)
 	fields = addField(fields, *field8Title, *field8Value, *field8Short)
+	fields = addField(fields, *field9Title, *field9Value, *field9Short)
+	fields = addField(fields, *field10Title, *field10Value, *field10Short)
 
 	if len(fields) > 0 {
 		attachment.Fields = fields
