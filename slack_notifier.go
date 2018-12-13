@@ -21,6 +21,7 @@ type Payload struct {
 	Mrkdwn      bool         `json:"mrkdwn"`
 	IconEmoji   string       `json:"icon_emoji"`
 	Username    string       `json:"username"`
+	Channel     string       `json:"channel"`
 }
 
 // Attachment for a Slack message
