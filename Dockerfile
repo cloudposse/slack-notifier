@@ -1,12 +1,12 @@
-FROM golang:1.9.3 as builder
-RUN mkdir -p /go/src/github.com/cloudposse/slack-notifier
-WORKDIR /go/src/github.com/cloudposse/slack-notifier
-COPY . .
-RUN go get && CGO_ENABLED=0 go build -v -o "./dist/bin/slack-notifier" *.go
+FROM golang:1.13.3-buster as builder
+ENV GO111MODULE=on
+ENV CGO_ENABLED=0
+WORKDIR /usr/src/
+COPY . /usr/src
+RUN go build -v -o "bin/slack-notifier" *.go
 
-
-FROM alpine:3.6
+FROM alpine:3.12
 RUN apk add --no-cache ca-certificates
-COPY --from=builder /go/src/github.com/cloudposse/slack-notifier/dist/bin/slack-notifier /usr/bin/slack-notifier
+COPY --from=builder /usr/src/bin/* /usr/bin/
 ENV PATH $PATH:/usr/bin
 ENTRYPOINT ["slack-notifier"]
