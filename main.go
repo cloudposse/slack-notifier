@@ -15,6 +15,7 @@ var (
 	fallback    = flag.String("fallback", os.Getenv("SLACK_FALLBACK"), "A plain-text summary of the attachment. This text will be used in clients that don't show formatted text")
 	color       = flag.String("color", os.Getenv("SLACK_COLOR"), "An optional value that can either be one of good, warning, danger, or any hex color code (e.g. #439FE0)")
 	channel     = flag.String("channel", os.Getenv("SLACK_CHANNEL"), "Slack channel to send to")
+	thread      = flag.String("thread", os.Getenv("SLACK_THREAD"), "Slack channel thread to send to")
 	pretext     = flag.String("pretext", os.Getenv("SLACK_PRETEXT"), "Optional text that appears above the message attachment block")
 	authorName  = flag.String("author_name", os.Getenv("SLACK_AUTHOR_NAME"), "Small text to display the attachment author's name")
 	authorLink  = flag.String("author_link", os.Getenv("SLACK_AUTHOR_LINK"), "URL that will hyperlink the author's name. Will only work if author_name is present")
@@ -135,6 +136,7 @@ func main() {
 		Username:    *userName,
 		IconEmoji:   *iconEmoji,
 		Channel:     *channel,
+		Thread:      *thread,
 	}
 
 	notifier := NewSlackNotifier(*webhookURL)
