@@ -27,6 +27,7 @@ __NOTE__: The module supports up to 8 Fields in an [attachment](https://api.slac
 | fallback              | SLACK_FALLBACK      | A plain-text summary of the attachment. This text will be used in clients that don't show formatted text                             |
 | color                 | SLACK_COLOR         | An optional value that can either be one of `good`, `warning`, `danger`, or a color code (_e.g._ `#439FE0`)                          |
 | channel               | SLACK_CHANNEL       | Slack channel to send to                                                                                                             |
+| thread                | SLACK_THREAD        | Slack channel thread to send to                                                                                                      |
 | pretext               | SLACK_PRETEXT       | Optional text that appears above the message attachment block                                                                        |
 | author_name           | SLACK_AUTHOR_NAME   | Small text to display the attachment author's name                                                                                   |
 | author_link           | SLACK_AUTHOR_LINK   | URL that will hyperlink the author's name. Will only work if `author_name` is present                                                |

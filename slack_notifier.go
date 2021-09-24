@@ -22,6 +22,7 @@ type Payload struct {
 	IconEmoji   string       `json:"icon_emoji"`
 	Username    string       `json:"username"`
 	Channel     string       `json:"channel"`
+	Thread      string       `json:"thread_ts,omitempty"`
 }
 
 // Attachment for a Slack message
