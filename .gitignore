@@ -17,3 +17,5 @@ slack-notifier
 *.out
 
 build-harness/
+
+dist/
