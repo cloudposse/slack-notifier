@@ -44,6 +44,7 @@ jobs:
         with:
           name: slack-notifier
           path: dist/*
+          retention-days: 3
 
       - name: Public Release
         if: (github.event_name == 'release' && github.event.action == 'published') || (github.event_name == 'workflow_dispatch' && github.ref_name == 'master')
