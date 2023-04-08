@@ -37,14 +37,13 @@ jobs:
           distribution: goreleaser
           version: latest
           args: release --clean --snapshot
-          workdir: test-artifacts
 
       - name: Upload Test Release Assets
         if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && github.ref_name != 'master')
         uses: actions/upload-artifact@v3
         with:
           name: slack-notifier
-          path: test-artifacts/dist/*
+          path: dist/*
 
       - name: Public Release
         if: (github.event_name == 'release' && github.event.action == 'published') || (github.event_name == 'workflow_dispatch' && github.ref_name == 'master')
