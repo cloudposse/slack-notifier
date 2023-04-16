@@ -9,9 +9,6 @@ on:
       - synchronize
       - reopened
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
