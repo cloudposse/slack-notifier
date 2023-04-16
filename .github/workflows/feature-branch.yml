@@ -1,4 +1,4 @@
-name: build-snapshot
+name: Feature branch
 
 on:
   workflow_dispatch:
