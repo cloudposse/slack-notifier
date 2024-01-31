@@ -1,4 +1,4 @@
-# slack-notifier [![Build Status](https://travis-ci.org/cloudposse/slack-notifier.svg?branch=master)](https://travis-ci.org/cloudposse/slack-notifier)
+# slack-notifier
 
 
 Command line utility to send messages with [attachments](https://api.slack.com/docs/message-attachments)
