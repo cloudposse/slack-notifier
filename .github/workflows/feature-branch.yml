@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
+          cache: true
 
       - name: Test Snapshot Release
         uses: goreleaser/goreleaser-action@v5
