@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
 
@@ -31,7 +31,7 @@ jobs:
           args: release --config ./dev.goreleaser.yaml --clean --snapshot
 
       - name: Upload Test Release Assets
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: slack-notifier
           path: dist/*
