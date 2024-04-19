@@ -13,6 +13,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
