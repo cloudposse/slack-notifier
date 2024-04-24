@@ -1,4 +1,4 @@
-FROM golang:1.20.3-bullseye as builder
+FROM golang:1.22.2-bullseye as builder
 ENV GO111MODULE=on
 ENV CGO_ENABLED=0
 WORKDIR /usr/src/
