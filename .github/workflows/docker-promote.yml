@@ -21,7 +21,7 @@ jobs:
         id: vars
         run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
     
-      - uses: cloudposse/github-action-docker-promote@0.3.0
+      - uses: cloudposse/github-action-docker-promote@v0.5.0
         id: promote
         with:
           registry: ghcr.io
